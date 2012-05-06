@@ -25,7 +25,7 @@ var primes = [5][3]int64 {
 func noise(x, y int64, seed int64, octave int) float64 {
 	n := x + y*57 + seed*7
 	fn := (n << 13) ^ n
-	return (1.0 - float64((fn*(fn*fn*primes[octave%5][0]+primes[octave%5][1])+primes[octave%5][2])&0x7fffffff)/float64(0x40000000))
+	return (1.0 - float64((fn*(fn*fn*15731+789221)+1376312589)&0x7fffffff)/float64(0x40000000))
 }
 
 func smoothedNoise(x float64, y float64, seed int64, octave int) float64 {
@@ -71,7 +71,5 @@ func Noise2D(x, y float64, seed int64, persistence float64, octaves int) (value 
 		amplitude := math.Pow(persistence, float64(i))
 		value += interpolatedNoise(x*frequency, y*frequency, seed, i) * amplitude
 	}
-	//Normalise to range 0.0-1.0
-	value = (1 + value/(float64(octaves) * persistence))/2
 	return
 }
