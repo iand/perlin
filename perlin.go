@@ -3,6 +3,8 @@
   and related or neighboring rights to this Source Code file.
   This work is published from the United Kingdom. 
 */
+
+// Generates 2 dimensional Perlin noise
 package perlin
 
 // Based on algorithm given at http://freespace.virgin.net/hugo.elias/models/m_perlin.htm
